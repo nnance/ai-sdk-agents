@@ -5,6 +5,10 @@ calculate(
     "If he works 12 hours a day and in 1 hour " +
     "he uses 12 liters of petrol with a price  of $134 for 1 liter. " +
     "How much money does he earn after expenses in one day?"
-)
-  .then(({ toolCalls }) => console.dir(toolCalls, { depth: null }))
-  .catch(console.error);
+).then(({ toolCalls, steps }) => {
+  console.log("Tool calls:");
+  console.dir(toolCalls, { depth: null });
+  console.log("Steps:");
+  const allToolCalls = steps.flatMap((step) => step.toolCalls);
+  console.dir(allToolCalls, { depth: null });
+});
