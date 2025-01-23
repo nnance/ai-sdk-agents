@@ -4,7 +4,6 @@ import "dotenv/config";
 import * as mathjs from "mathjs";
 import { z } from "zod";
 
-// connect to the local ollama server
 const ollama = createOpenAI({ baseURL: "http://localhost:11434/v1" });
 const qwen25 = ollama("qwen2.5:14b", { structuredOutputs: true });
 const llama3 = ollama("llama3.3", { structuredOutputs: true });
