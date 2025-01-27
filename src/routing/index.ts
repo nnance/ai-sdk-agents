@@ -11,18 +11,16 @@ const phi4 = ollama("phi4", { structuredOutputs: true });
 
 const gpt4o = openai("gpt-4o", { structuredOutputs: true });
 
-async function main() {
-  const requests = [
-    router(qwen25, `Hi! My router is not working. I need internet access now!`),
-    router(qwen25, `Hi! I didn't get an invoice for this month.  Why is that?`),
-    router(
-      qwen25,
-      `Hi! I want to cancel my subscription now! I am very unhappy and mad.`
-    ),
-    router(qwen25, `Hello, I need help with my taxes. Can you help me?`),
-  ];
-  const routingResponse = await Promise.all(requests);
-  console.dir(routingResponse, { depth: null });
-}
+const requests = [
+  router(qwen25, `Hi! My router is not working. I need internet access now!`),
+  router(qwen25, `Hi! I didn't get an invoice for this month.  Why is that?`),
+  router(
+    qwen25,
+    `Hi! I want to cancel my subscription now! I am very unhappy and mad.`
+  ),
+  router(qwen25, `Hello, I need help with my taxes. Can you help me?`),
+];
 
-main();
+Promise.all(requests).then((responses) =>
+  console.dir(responses, { depth: null })
+);

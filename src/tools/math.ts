@@ -1,19 +1,11 @@
-import { openai, createOpenAI } from "@ai-sdk/openai";
-import { generateText, tool } from "ai";
+import { generateText, LanguageModelV1, tool } from "ai";
 import "dotenv/config";
 import * as mathjs from "mathjs";
 import { z } from "zod";
 
-const ollama = createOpenAI({ baseURL: "http://localhost:11434/v1" });
-const qwen25 = ollama("qwen2.5:14b", { structuredOutputs: true });
-const llama3 = ollama("llama3.3", { structuredOutputs: true });
-const phi4 = ollama("phi4", { structuredOutputs: true });
-
-const gpt4o = openai("gpt-4o-2024-08-06", { structuredOutputs: true });
-
-export async function calculate(expression: string) {
+export async function calculate(model: LanguageModelV1, expression: string) {
   return generateText({
-    model: gpt4o,
+    model,
     tools: {
       calculate: tool({
         description:
