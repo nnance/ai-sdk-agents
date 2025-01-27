@@ -12,7 +12,6 @@ export function verifyResponse(model: LanguageModelV1, firstResponse: object) {
         .describe("True if client is accepted, false if rejected."),
       denial_reason: z
         .string()
-        .optional()
         .describe("If client is rejected, you need to give a reason."),
     }),
     messages: [{ role: "user", content: JSON.stringify(firstResponse) }],

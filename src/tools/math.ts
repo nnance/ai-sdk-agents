@@ -1,5 +1,4 @@
 import { generateText, LanguageModelV1, tool } from "ai";
-import "dotenv/config";
 import * as mathjs from "mathjs";
 import { z } from "zod";
 
@@ -33,7 +32,7 @@ export async function calculate(model: LanguageModelV1, expression: string) {
     toolChoice: "required",
     maxSteps: 10,
     onStepFinish({ text, toolCalls, toolResults, finishReason, usage }) {
-      console.log("Step finished:", text);
+      console.log("Step finished:");
       console.dir(toolCalls, { depth: null });
     },
     system:
