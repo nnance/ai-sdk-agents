@@ -2,6 +2,10 @@ import { installMatchers } from "../util/matchers";
 
 installMatchers();
 
+const gradingConfig = {
+  provider: "openai:chat:gpt-4o-mini",
+};
+
 describe("semantic similarity tests", () => {
   test("should pass when strings are semantically similar", async () => {
     await expect("The quick brown fox").toMatchSemanticSimilarity(
@@ -26,6 +30,22 @@ describe("semantic similarity tests", () => {
     await expect("The quick brown fox").not.toMatchSemanticSimilarity(
       "The weather is nice today",
       0.9
+    );
+  });
+});
+
+describe("LLM evaluation tests", () => {
+  test("should pass when strings meet the LLM Rubric criteria", async () => {
+    await expect("Four score and seven years ago").toPassLLMRubric(
+      "Contains part of a famous speech",
+      gradingConfig
+    );
+  });
+
+  test("should fail when strings do not meet the LLM Rubric criteria", async () => {
+    await expect("It is time to do laundry").not.toPassLLMRubric(
+      "Contains part of a famous speech",
+      gradingConfig
     );
   });
 });
