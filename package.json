@@ -1,7 +1,11 @@
 {
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.10.7",
+    "jest": "^29.7.0",
     "prettier": "^3.4.2",
+    "promptfoo": "^0.103.14",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.7.3"
   },
   "dependencies": {
@@ -19,7 +23,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsc && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "genai",
