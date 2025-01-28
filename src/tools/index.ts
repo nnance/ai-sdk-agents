@@ -1,7 +1,7 @@
 import { calculate } from "./math";
 import { registry } from "../util/registry";
 
-const model = registry.languageModel("localProvider:structure-large");
+const model = registry.languageModel("remoteProvider:structure-large");
 
 calculate(
   model,
