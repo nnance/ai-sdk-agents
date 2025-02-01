@@ -11,8 +11,8 @@ const remoteProvider = customProvider({
     "text-medium": openai("gpt-4o"),
     "text-small": openai("gpt-4o-mini"),
     "structure-large": openai("gpt-4o", { structuredOutputs: true }),
-    "structure-medium": openai("gpt-4o", { structuredOutputs: true }),
-    "structure-small": openai("gpt-4o-mini", { structuredOutputs: true }),
+    "structure-medium": openai("gpt-4o-mini", { structuredOutputs: true }),
+    "structure-small": openai("gpt-3.5-turbo", { structuredOutputs: true }),
   },
 });
 
