@@ -6,19 +6,19 @@ const agents = {
     description:
       "a tech specialist that handles technical problems. examples include: internet issues, router problems, slow connection.",
     prompt:
-      "You are a tech specialist. Clients call you with technical problems.",
+      "You are a tech specialist for a call center of an Internet Service Provider. Clients call you with technical problems.",
   },
   account: {
     description:
       "an account manager that handles calls related to client accounts. examples include: billing, subscription, cancellation.",
     prompt:
-      "You are an account manager. Clients call you with topics related to their account.",
+      "You are an account manage rfor a call center of an Internet Service Provider. Clients call you with topics related to their account.",
   },
   finance: {
     description:
       "a finance specialist that handles finance related topics. examples include: invoices, payments, refunds.",
     prompt:
-      "You are finance specialist. Clients call you with finance related topics.",
+      "You are finance specialist for a call center of an Internet Service Provider. Clients call you with finance related topics.",
   },
   unknown: {
     description: "an unknown agent type",
